@@ -1,0 +1,33 @@
+import mongoose from "mongoose";
+import { refreshToken } from "../controllers/auth.controller.js";
+
+
+const sessionSchema = new mongoose.Schema({
+    user : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref : "users",
+        required :[true,"user is required"]
+    },
+    refreshTokenHash: {
+        type : String,
+        required :[true , "refresh token hash is required"]
+    },
+    ip:{
+        type : String,
+        required : [true , " ip address is reuired"]
+    },
+    userAgent : {
+        type : String,
+        required : [true , "user agent is required"]
+    },
+    revoked : {
+        type: Boolean,
+        default : false
+    }
+},{
+    timestamps : true
+});
+
+const sessionModel = mongoose.model("session", sessionSchema)
+
+export default sessionModel;
