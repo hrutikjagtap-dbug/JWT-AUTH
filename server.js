@@ -8,4 +8,3 @@ app.listen(3000 ,()=>{
     console.log("port is listening");
 });
 
-//     mongodb+srv://JWT-AUTH:kSAvxmf32iyL9ItV@jwt-auth.xmixkee.mongodb.net/
